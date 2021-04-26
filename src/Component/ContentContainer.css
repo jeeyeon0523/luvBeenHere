@@ -1,0 +1,9 @@
+.container{
+    align-items: center;
+}
+
+.container-box{
+    background-color: rgb(255, 151, 151);
+    max-width: 1000px;
+    min-width: 600px;
+}
