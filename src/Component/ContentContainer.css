@@ -1,9 +1,36 @@
+
 .container{
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    min-width: 100%;
 }
 
 .container-box{
     background-color: rgb(255, 151, 151);
-    max-width: 1000px;
-    min-width: 600px;
+    max-width: 63%;
+    min-width: 63%;
+    float: left;
+    margin: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*border나중에 삭제하기*/
+    border: 1px solid white; 
+}
+
+.container-box2{
+    background-color: rgb(66, 3, 3);
+    max-width: 34%;
+    min-width: 34%;
+    float: left;
+    margin: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*border나중에 삭제하기*/
+    border: 1px solid white;
 }

@@ -10,7 +10,12 @@ function ContentContainer() {
         <Fragment>
             <Container fixed className="container">
                 <Box className="container-box" display="flex" flexDirection="row">
-                    <DateSlider></DateSlider>
+                    {/* <DateSlider></DateSlider> */}
+                    지도
+                </Box>
+                <Box className="container-box2" display="flex" flexDirection="row">
+                    {/* <DateSlider></DateSlider> */}
+                    상세페이지
                 </Box>
             </Container>
         </Fragment>
