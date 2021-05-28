@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.container {
+  background-color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  min-width: 100%; }
+
+.container-box {
+  background-color: #F2D5CE;
+  max-width: 63%;
+  min-width: 63%;
+  float: left;
+  margin: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*border나중에 삭제하기*/
+  border: 1px solid white; }
+
+.container-box2 {
+  background-color: #420303;
+  max-width: 34%;
+  min-width: 34%;
+  float: left;
+  margin: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /*border나중에 삭제하기*/
+  border: 1px solid white; }
