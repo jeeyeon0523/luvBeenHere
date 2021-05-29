@@ -15,7 +15,6 @@
     max-width: 63%;
     min-width: 63%;
     float: left;
-    margin: 10px;
     flex-direction: row;
     flex-wrap: wrap;
     /*border나중에 삭제하기*/
@@ -23,11 +22,11 @@
 }
 
 .container-box2{
-    background-color: rgb(66, 3, 3);
+    background-color: #F2D5CE;
     max-width: 34%;
     min-width: 34%;
     float: left;
-    margin: 10px;
+    margin-left: 10px;
     flex-direction: row;
     flex-wrap: wrap;
     /*border나중에 삭제하기*/

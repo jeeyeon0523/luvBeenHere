@@ -9,10 +9,9 @@ function MapsContainer(){
 
     return(
         <Fragment>
-            <Container fixed className="container">
+            <Container className="container">
                 <Box className="container-box" display="flex" flexDirection="row">
                     {/* <DateSlider></DateSlider> */}
-                    지도
                     <Maps />
                 </Box>
                 <Box className="container-box2" display="flex" flexDirection="row">

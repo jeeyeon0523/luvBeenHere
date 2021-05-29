@@ -8,9 +8,12 @@ function ContentContainer(){
 
     return(
         <Fragment>
-            <Container fixed className="container">
+            {/* <Container fixed className="container">
                 <MapsContainer/>
-            </Container>
+            </Container> */}
+            <div className="container">
+                <MapsContainer/>
+            </div>
         </Fragment>
     )
             
