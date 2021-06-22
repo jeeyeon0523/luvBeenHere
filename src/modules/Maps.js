@@ -13,7 +13,7 @@ function Maps() {
     const [lat ,setLat] = useState('37.576429');
     const [lng, setLng] = useState('126.904376');
     const [zoom, setZoom] = useState(13);
-
+    const center = [37.56410648646213, 126.9851966669863];
     const position = [lat, lng];
 
     const position2 = [37.629889, 127.067015]; //
@@ -37,7 +37,7 @@ function Maps() {
     //37.629889, 127.067015
     
     return(
-        <MapContainer style={{ width: '100%', height: '1000px'}} center={position} zoom={zoom}>
+        <MapContainer style={{ width: '100%', height: '1000px'}} center={center} zoom={zoom}>
             <TileLayer
                 attribution='<a href="https://maps.google.com/maps"></a>'
                 url = 'http://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}'
