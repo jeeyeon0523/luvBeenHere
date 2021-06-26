@@ -1,23 +1,52 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../dist/Navi.css';
+import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faCompass, faMap, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
+const SNavi = styled.div`
+  background-color: rgba(255, 255, 255, 1);
+  color: ${(props) => props.theme.accent_intense};
+  align-items: center;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: ${(props) => props.theme.accent_intense};
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  justify-content: space-around;
+  top:0;
+  z-index:9000;
+`;
+
+const Logo = styled.img`
+  height:40px
+`
+const LogoContainer = styled.div`
+
+`
+const Icon = styled.a`
+  font-size: 30px;
+  color: ${(props) => props.theme.bg_intense};
+  padding-left: 10px;
+
+`
 
 function Navi(){
     return(
-      <Navbar className="nav" variant="dark">
-      <Navbar.Brand href="#home">LUVBEENHERE</Navbar.Brand>
-      <Nav className="mr-auto">
-        <Nav.Link href="#timelines">Timelines</Nav.Link>
-        <Nav.Link href="#maps">Maps</Nav.Link>
-        {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
-      </Nav>
-      {/* <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Button variant="outline-info">Search</Button>
-      </Form> */}
-    </Navbar>
+      <SNavi>
+        <LogoContainer>
+          <Logo src="/images/logo_small.png"></Logo>
+          <Logo src="/images/lbh_small.png"></Logo>
+        </LogoContainer>
+        <div>
+        <Icon><FontAwesomeIcon icon={faCompass} /></Icon>
+        <Icon><FontAwesomeIcon icon={faClock} /></Icon>
+        </div>
+      </SNavi>
     )
 }
 
