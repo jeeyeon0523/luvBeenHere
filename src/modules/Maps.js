@@ -8,8 +8,9 @@ import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 
-function Maps() {
-
+function Maps(props) {
+    console.log("height")
+    console.log(props)
     const [lat, setLat] = useState('37.576429');
     const [lng, setLng] = useState('126.904376');
     const [zoom, setZoom] = useState(13);
@@ -26,7 +27,7 @@ function Maps() {
 
     L.Marker.prototype.options.icon = DefaultIcon;
     return (
-        <MapContainer style={{ width: '100%', height: '1000px' }} center={center} zoom={zoom}>
+        <MapContainer style={{ width: '100%', height: 'calc(100vh - 60px)' }} center={center} zoom={zoom}>
             <TileLayer
                 attribution='<a href="https://maps.google.com/maps"></a>'
                 url='http://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}'

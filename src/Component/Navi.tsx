@@ -3,10 +3,10 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faCompass, faMap, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
+import { faClock, faCompass, faLaugh, faMap, faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
 const SNavi = styled.div`
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.9);
   color: ${(props) => props.theme.accent_intense};
   align-items: center;
   border-bottom-style: solid;
@@ -23,7 +23,7 @@ const SNavi = styled.div`
 `;
 
 const Logo = styled.img`
-  height:40px
+  height:35px
 `
 const LogoContainer = styled.div`
 
@@ -31,7 +31,7 @@ const LogoContainer = styled.div`
 const Icon = styled.a`
   font-size: 30px;
   color: ${(props) => props.theme.bg_intense};
-  padding-left: 10px;
+  padding-left: 20px;
 
 `
 
@@ -45,6 +45,7 @@ function Navi(){
         <div>
         <Icon><FontAwesomeIcon icon={faCompass} /></Icon>
         <Icon><FontAwesomeIcon icon={faClock} /></Icon>
+        <Icon><FontAwesomeIcon icon={faLaugh} /></Icon>
         </div>
       </SNavi>
     )

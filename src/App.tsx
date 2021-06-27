@@ -1,9 +1,8 @@
 import { GlobalStyles, lightTheme } from "./styles";
-import MapView from './screens/MapView'
 import Navi from './Component/Navi';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-
+import ContentContainer from "./Component/ContentContainer";
 function App() {
   return (
     <div className="App">
@@ -13,7 +12,7 @@ function App() {
           <Navi />
           <Switch>
             <Route path="/map">
-              <MapView />
+              <ContentContainer />
             </Route>
           </Switch>
         </Router>

@@ -18,6 +18,7 @@ export const darkTheme = {
 
 export const GlobalStyles = createGlobalStyle`
     ${reset}
+
     input {
       all:unset;
     }
@@ -25,7 +26,8 @@ export const GlobalStyles = createGlobalStyle`
       box-sizing:border-box;
     }
     body {
-        padding-top: 70px;
+  
+        padding-top: 60px;
         background-color: white;
         font-size:14px;
         font-family:'Open Sans', sans-serif;

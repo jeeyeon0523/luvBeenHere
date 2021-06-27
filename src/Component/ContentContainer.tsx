@@ -3,18 +3,17 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import MapsContainer from './MapsContainer';
 import DateSlider from './DateSlider';
+import styled from 'styled-components';
+
+const SFullScreen = styled.div`
+  background-color: white;
+`;
 
 function ContentContainer(){
-
     return(
-        <Fragment>
-            {/* <Container fixed className="container">
-                <MapsContainer/>
-            </Container> */}
-            <div className="container">
-                <MapsContainer/>
-            </div>
-        </Fragment>
+        <SFullScreen>
+            <MapsContainer/> 
+        </SFullScreen>   
     )
             
 }
