@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import ContainerDimensions from "react-container-dimensions"
 import Navi from './Navi';
 import DetailPopup from './DetailPopup';
-import ListPopup from './ListPopup';
+
 const SFullScreen = styled.div`
   height : 100%;
   width : 100%;
@@ -27,7 +27,7 @@ function MapsContainer() {
             <Maps />
 
             <DetailPopup/>
-            <ListPopup/>
+
         </SFullScreen>
         
     )
