@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './DetailContainer';
 import Maps from '../modules/Maps';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { Drawer, ClickAwayListener } from '@material-ui/core';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Drawer, ClickAwayListener, IconButton } from '@material-ui/core';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DetailPopup from './DetailPopup';
 
 const drawerWidth = 350;
@@ -37,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background : 'transparent'
+    background : 'transparent',
+    border:'none',
   },
   drawerHeader: {
     display: 'flex',
@@ -46,12 +48,17 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
+    marginTop:'60px',
+  },
+  drawerButton:{
+    background:'white'
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
+
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginRight: -drawerWidth,
@@ -68,23 +75,28 @@ const useStyles = makeStyles((theme) => ({
 function MapsContainer() {
 
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
+    const theme = useTheme();
+    const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
-        setOpen(true);
+      setOpen(true);
     };
     
     const handleDrawerClose = () => {
-        setOpen(false);
+      setOpen(false);
     };
 
     return (
         <div>
-            <Maps />
-            <ClickAwayListener onClickAway={handleDrawerClose}>
-                <Drawer className={classes.drawer} variant="persistent" anchor="right" open={open} classes={{paper: classes.drawerPaper,}}>
-                    <DetailPopup/>
-                </Drawer>
-            </ClickAwayListener>
+            <Drawer className={classes.drawer} variant="persistent" anchor="right" open={open} classes={{paper: classes.drawerPaper}}>
+                <div className={classes.drawerHeader}>
+                  <IconButton className={classes.drawerButton} onClick={handleDrawerClose} >
+                    <ChevronRightIcon />
+                  </IconButton>
+
+                </div>
+                <DetailPopup/>
+            </Drawer>
+            <Maps drawerOpen={handleDrawerOpen}/>
         </div>
     )
 }
