@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,14 +36,29 @@ const Icon = styled.a`
 `
 
 function Navi(){
+
+    const history = useHistory();
+
+    const handleLogoClick= () => {
+        history.push({
+            pathname : "/"
+        })
+    }
+
+    const handleMapClick= () => {
+        history.push({
+            pathname : "/map"
+        })
+    }
+    
     return(
       <SNavi>
-        <LogoContainer>
+        <LogoContainer onClick={handleLogoClick}>
           <Logo src="/images/logo_small.png"></Logo>
           <Logo src="/images/lbh_small.png"></Logo>
         </LogoContainer>
         <div>
-        <Icon><FontAwesomeIcon icon={faCompass} /></Icon>
+        <Icon><FontAwesomeIcon icon={faCompass} onClick={handleMapClick}/></Icon>
         <Icon><FontAwesomeIcon icon={faClock} /></Icon>
         <Icon><FontAwesomeIcon icon={faLaugh} /></Icon>
         </div>

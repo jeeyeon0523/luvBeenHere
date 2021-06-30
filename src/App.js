@@ -3,6 +3,8 @@ import Navi from './Component/Navi';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import ContentContainer from "./Component/ContentContainer";
+import './App.css';
+
 function App() {
   return (
     <div className="App">

@@ -1,24 +1,9 @@
 import React, { Fragment } from 'react';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import DateSlider from './DateSlider';
-import '../dist/ContentContainer.css';
 import './DetailContainer';
 import Maps from '../modules/Maps';
-import DetailContainer from './DetailContainer';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import { Drawer, ClickAwayListener } from '@material-ui/core';
-import styled from 'styled-components';
-import ContainerDimensions from "react-container-dimensions"
-import Navi from './Navi';
 import DetailPopup from './DetailPopup';
-import {useMapEvents} from 'react-leaflet';
-import { NONAME } from 'dns';
-
-const SFullScreen = styled.div`
-  height : 100%;
-  width : 100%;
-`;
 
 const drawerWidth = 350;
 
@@ -101,11 +86,6 @@ function MapsContainer() {
                 </Drawer>
             </ClickAwayListener>
         </div>
-        
-        // <SFullScreen>
-        //     <Maps />
-        //     <DetailPopup/>
-        // </SFullScreen>
     )
 }
 export default MapsContainer;
