@@ -21,6 +21,7 @@ pipeline {
                 dir('App') {
                     script{
                         sh 'CI=false npm run build'
+                        sh 'ls'
                         sh 'mv build fe'
                     }
                 }
