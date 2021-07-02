@@ -37,7 +37,7 @@ pipeline {
                             remote.password = RM_PASSWD 
                             remote.allowAnyHosts = true
 
-                            sshPut remote: remote, from: '.', into: '~/dev/luvbeenhere/fe/'
+                            sshPut remote: remote, from: '.', into: '~/dev/luvbeenhere/fe'
                         }
                     }
                 }
