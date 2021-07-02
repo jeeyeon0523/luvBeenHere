@@ -79,7 +79,7 @@ export const ProfileCardDemo = React.memo(function ProfileCard() {
         <Card className={styles.card}>
             <CardContent className={styles.details}>
                 <div className={styles.typo}>
-                    <h3 className={styles.heading}>우리 손 잡은 날</h3>
+                    <h3 className={styles.heading}>콩아 많이 사랑해</h3>
                     <Rating
                         name="simple-controlled"
                         value={2}
