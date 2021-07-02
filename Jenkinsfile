@@ -2,6 +2,9 @@ pipeline {
     agent { label 'master'}
     environment {
         AWS_CRED = credentials('aws_vergilius63')
+        RM_HOST = credentials('rm_host')
+        RM_USER = credentials('rm_user')
+        RM_PASSWD = credentials('rm_passwd')
     }
     stages{
         stage('Npm install'){
@@ -25,11 +28,16 @@ pipeline {
         stage('Upload S3'){
             steps {
                 script{
-                    sh 'mkdir -p ~/.aws'
-                    sh """echo ${AWS_CRED} | base64 -d > ~/.aws/credentials"""
                     dir('App/build') {
                         script{
-                            sh 'aws s3 sync . s3://dev.luvbeenhere.com/ --acl public-read'
+                            def remote = [:]
+                            remote.name = 'dev_server'
+                            remote.host = 'localhost'
+                            remote.user = RM_USER 
+                            remote.password = RM_PASSWD 
+                            remote.allowAnyHosts = true
+
+                            sshPut remote: remote, from: '.', into: '~/dev/luvbeenhere/fe/'
                         }
                     }
                 }
