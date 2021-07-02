@@ -4,7 +4,16 @@ pipeline {
         AWS_CRED = credentials('aws_vergilius63')
     }
     stages{
-        stage('Npm build'){
+        stage('Npm install'){
+            steps {
+                dir('App') {
+                    script{
+                        sh 'npm run build'
+                    }
+                }
+            }
+        }
+        stage('Build app'){
             steps {
                 dir('App') {
                     script{
