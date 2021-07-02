@@ -79,7 +79,7 @@ export const ProfileCardDemo = React.memo(function ProfileCard() {
         <Card className={styles.card}>
             <CardContent className={styles.details}>
                 <div className={styles.typo}>
-                    <h3 className={styles.heading}>처음 에버랜드 간 날</h3>
+                    <h3 className={styles.heading}>우리 손 잡은 날</h3>
                     <Rating
                         name="simple-controlled"
                         value={2}
@@ -87,7 +87,7 @@ export const ProfileCardDemo = React.memo(function ProfileCard() {
                         style={{ marginLeft: 8 }}
                     />
                     <div className={styles.detailInfo}>
-                        <p style={{ marginBottom: 3 }} >망원한강공원 외 3곳</p>
+                        <p style={{ marginBottom: 3 }} >마로니에공원 외 3곳</p>
                         <p >2019.08.30</p>
                     </div>
                 </div>
