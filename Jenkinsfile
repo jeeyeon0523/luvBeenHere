@@ -27,8 +27,8 @@ pipeline {
                 script{
                     sh 'mkdir -p ~/.aws'
                     sh """echo ${AWS_CRED} | base64 -d > ~/.aws/credentials"""
-                    dir('App') {
-                        script{aws_vergilius63
+                    dir('App/build') {
+                        script{
                             sh 'aws s3 sync . s3://luvbeenhere-web-dev/ --acl public-read'
                         }
                     }
