@@ -35,35 +35,35 @@ const Icon = styled.a`
 
 `
 
-function Navi(){
+function Navi() {
 
-    const history = useHistory();
+  const history = useHistory();
 
-    const handleLogoClick= () => {
-        history.push({
-            pathname : "/"
-        })
-    }
+  const handleLogoClick = () => {
+    history.push({
+      pathname: "/"
+    })
+  }
 
-    const handleMapClick= () => {
-        history.push({
-            pathname : "/map"
-        })
-    }
-    
-    return(
-      <SNavi>
-        <LogoContainer onClick={handleLogoClick}>
-          <Logo src="/images/logo_small.png"></Logo>
-          <Logo src="/images/lbh_small.png"></Logo>
-        </LogoContainer>
-        <div>
-        <Icon><FontAwesomeIcon icon={faCompass} onClick={handleMapClick}/></Icon>
+  const handleMapClick = () => {
+    history.push({
+      pathname: "/map"
+    })
+  }
+
+  return (
+    <SNavi>
+      <LogoContainer onClick={handleLogoClick}>
+        <Logo src="/images/logo_small.PNG"></Logo>
+        <Logo src="/images/lbh_small.PNG"></Logo>
+      </LogoContainer>
+      <div>
+        <Icon><FontAwesomeIcon icon={faCompass} onClick={handleMapClick} /></Icon>
         <Icon><FontAwesomeIcon icon={faClock} /></Icon>
         <Icon><FontAwesomeIcon icon={faLaugh} /></Icon>
-        </div>
-      </SNavi>
-    )
+      </div>
+    </SNavi>
+  )
 }
 
 export default Navi;
