@@ -21,6 +21,7 @@ pipeline {
                 dir('App') {
                     script{
                         sh 'CI=false npm run build'
+                        sh 'mv build fe'
                     }
                 }
             }
@@ -28,7 +29,7 @@ pipeline {
         stage('Upload S3'){
             steps {
                 script{
-                    dir('App/build') {
+                    dir('App/fe') {
                         script{
                             def remote = [:]
                             remote.name = 'dev_server'
@@ -37,7 +38,7 @@ pipeline {
                             remote.password = RM_PASSWD 
                             remote.allowAnyHosts = true
                             sshCommand remote: remote, command: """ls"""
-                            sshPut remote: remote, from: '.', into: './dev/luvbeenhere/fe'
+                            sshPut remote: remote, from: '.', into: './dev/luvbeenhere'
                         }
                     }
                 }
