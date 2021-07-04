@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css';
-import '../Styles/Maps.css';
+import '../Styles/dist/Maps.css';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Tooltip, ZoomControl, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
