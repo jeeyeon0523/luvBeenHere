@@ -34,7 +34,7 @@ function Maps(props) {
             />
             <ZoomControl position="bottomleft" />
             <Marker position={position} eventHandlers={{click : (e)=> {handleMarkerClick()}}} >
-                <Tooltip><span>콩이네입니다.</span></Tooltip>
+                <Tooltip><span>예쁜콩이네입니다.</span></Tooltip>
             </Marker>
             <Marker position={position2} eventHandlers={{click : (e)=> {handleMarkerClick()}}}>
                 <Tooltip><span>뚱이네입니다.</span></Tooltip>
