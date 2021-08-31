@@ -8,6 +8,10 @@ import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import Rating from '@material-ui/lab/Rating';
 import styled from 'styled-components';
+import { SEE_VISITS_QUERY } from '../graphql/visits';
+import { useMutation, useQuery } from '@apollo/client';
+import { y4m2d2Format } from '../Util/DateHandle';
+
 
 const useStyles = makeStyles(({ palette }) => ({
 
@@ -73,28 +77,30 @@ const useStyles = makeStyles(({ palette }) => ({
     },
 }));
 
-export const ProfileCardDemo = React.memo(function ProfileCard() {
+function ProfileCard({ id ,name, dateName, place, yyyymmdd, file, rating}) {
     const styles = useStyles();
+    const placeOrEmpty = place ? '@'+place : ""
+    const formatDateTime = y4m2d2Format(yyyymmdd)
+    console.log(file);
     return (
         <Card className={styles.card}>
             <CardContent className={styles.details}>
                 <div className={styles.typo}>
-                    <h3 className={styles.heading}>콩아 많이 사랑해</h3>
+                    <h3 className={styles.heading}>{name}</h3>
                     <Rating
                         name="simple-controlled"
-                        value={2}
-
+                        value={rating}
                         style={{ marginLeft: 8 }}
                     />
                     <div className={styles.detailInfo}>
-                        <p style={{ marginBottom: 3 }} >마로니에공원 외 3곳</p>
-                        <p >2019.08.30</p>
+                        <p style={{ marginBottom: 3 }} >{`${dateName}${placeOrEmpty}`}</p>
+                        <p >{formatDateTime}</p>
                     </div>
                 </div>
-                <Avatar className={styles.avatar} src={'https://i.pravatar.cc/300'} />
+                <Avatar className={styles.avatar} src={file} />
             </CardContent>
         </Card>
     );
-});
+};
 
-export default ProfileCardDemo
+export default ProfileCard
