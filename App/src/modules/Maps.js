@@ -5,6 +5,8 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip, ZoomControl, useMapEve
 import L from 'leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import { useQuery } from '@apollo/client';
+import { SEE_VISITS_QUERY } from '../graphql/visits';
 
 
 function MapHooks(){
@@ -24,7 +26,6 @@ function Maps(props) {
     const center = [37.56410648646213, 126.9851966669863];
     const position = [lat, lng];
 
-    const position2 = [37.629889, 127.067015]; //
 
     // set default marker Icons
     let DefaultIcon = L.icon({
@@ -37,6 +38,18 @@ function Maps(props) {
         props.drawerOpen();
     }
 
+    const { loading, error, data } = useQuery(SEE_VISITS_QUERY, {
+        variables: { 
+          xRngFrom: 0,
+          xRngTo: 999,
+          yRngFrom: 0,
+          yRngTo: 999,
+         },
+    });
+    if(!loading){
+        console.log(data);
+    }
+
     return (
         <MapContainer style={{ width: '100%', height: 'calc(100vh - 60px)' }} center={center} zoom={zoom} zoomControl={false} minZoom={7}>
             <MapHooks/>
@@ -45,12 +58,14 @@ function Maps(props) {
                 url='http://mt0.google.com/vt/lyrs=m&hl=kr&x={x}&y={y}&z={z}'
             />
             <ZoomControl position="bottomleft" />
-            <Marker position={position} eventHandlers={{click : (e)=> {handleMarkerClick()}}} >
-                <Tooltip><span>예쁜콩이네입니다.</span></Tooltip>
-            </Marker>
-            <Marker position={position2} eventHandlers={{click : (e)=> {handleMarkerClick()}}}>
-                <Tooltip><span>뚱이네입니다.</span></Tooltip>
-            </Marker>
+            {loading? null : data.seeVisits.map(e=>
+                (
+                    <Marker key={e.id} position={[e.posX,e.posY]} eventHandlers={{click : (e)=> {handleMarkerClick()}}} >
+                        <Tooltip><span>{e.name}</span></Tooltip>
+                    </Marker>
+                ) 
+            )}
+            
         </MapContainer>
 
 
