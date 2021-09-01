@@ -5,6 +5,9 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Drawer, ClickAwayListener, IconButton } from '@material-ui/core';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DetailPopup from './DetailPopup';
+import DefaultTooltip from './ClusterTooltip';
+import ClusterTooltip from './ClusterTooltip';
+
 
 const drawerWidth = 350;
 
@@ -92,7 +95,6 @@ function MapsContainer() {
                   <IconButton className={classes.drawerButton} onClick={handleDrawerClose} >
                     <ChevronRightIcon />
                   </IconButton>
-
                 </div>
                 <DetailPopup/>
             </Drawer>
